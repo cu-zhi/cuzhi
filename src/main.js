@@ -34,6 +34,12 @@ NProgress.configure({
 
 import "@/utils/global";
 
+// 自定义指令
+import { directives } from "@/utils/directives";
+Object.keys(directives).forEach((v) => {
+  Vue.directive(v, directives[v]);
+});
+
 new Vue({
   router,
   store,

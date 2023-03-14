@@ -1,7 +1,7 @@
 <template>
   <div class="left-menu pr">
     <header class="logo mb20">
-      <img src="@/assets/images/logo.png" alt="" />
+      <img v-img-lazy src="@/assets/images/logo.png" alt="" />
     </header>
     <el-menu default-active="2" class="el-menu-vertical-demo" router>
       <el-menu-item index="/">
