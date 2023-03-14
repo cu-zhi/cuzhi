@@ -11,17 +11,16 @@
       border
     >
       <template slot="description" slot-scope="{ row }">
-        <el-popover placement="top-start" trigger="hover">
-          <div v-html="row.description"></div>
+        <el-popover placement="bottom" trigger="hover">
+          <span v-html="row.description"></span>
           <span
-            v-html="row.description"
-            class="ellipsis"
             slot="reference"
+            class="ellipsis"
+            v-html="row.description"
           ></span>
         </el-popover>
       </template>
-
-      <template slot="handel" slot-scope="{ row }">
+      <template slot="handle" slot-scope="{ row }">
         <el-button type="text" @click="delHandle(row)">删除</el-button>
       </template>
     </c-table>
@@ -54,35 +53,42 @@ export default {
       ],
       columns: [
         {
-          width: "55",
-          align: "center",
           type: "selection",
+          align: "center",
+          showTooltip: false,
+          width: "55",
+          isShow: true,
         },
         {
-          label: "项目名称",
+          label: "项目标题",
           prop: "title",
-          width: "150",
-          showTooltip: true,
           align: "center",
+          showTooltip: true,
+          width: "160",
+          isShow: true,
         },
         {
-          label: "关键字",
+          label: "项目关键字",
           prop: "keyWord",
-          width: "200",
-          showTooltip: true,
           align: "center",
+          showTooltip: true,
+          width: "250",
+          isShow: true,
         },
         {
           label: "项目描述",
           slot: "description",
-          showTooltip: false,
           align: "left",
+          showTooltip: false,
+          isShow: true,
         },
         {
           label: "操作",
-          slot: "handel",
+          slot: "handle",
           align: "center",
+          showTooltip: false,
           width: "120",
+          isShow: true,
         },
       ],
       total: 1,
