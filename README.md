@@ -1,19 +1,11 @@
-# front-end
+## 平台简介
 
-## Project setup
-```
-npm install
-```
+由于平时工作中每次新建项目一些方法和组件都要重新迁移或者 cv 一遍比较费时费力，打算搭建一个基于 Vue2 相对完善的脚手架，目前正在根据自己平时工作中封装的组件或者方法慢慢集成到这里面来。后续也会上传 Node.js 项目
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 项目展示
+<table>
+    <tr>
+        <td><img src="./imgs/Snipaste_2023-03-14_13-42-03.png"/></td>
+        <td><img src="./imgs/Snipaste_2023-03-14_13-47-00.png"/></td>
+    </tr>
+</table>
