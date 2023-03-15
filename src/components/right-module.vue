@@ -40,7 +40,7 @@
         <i class="el-icon-chat-dot-square f20 theme poi"></i>
       </div>
       <div class="message-box scrollbar">
-        <div class="mt10 poi" v-for="i in 2" :key="i">
+        <div class="mt10 poi" v-for="i in 20" :key="i">
           <div class="d-flex a-i-c">
             <img
               v-img-lazy
@@ -51,30 +51,6 @@
             />
             <div class="ml5">
               <p class="f12 b">消息标题</p>
-              <p class="f10 mt5 theme ellipsi">消息内容23424234234234223434</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="activity">
-      <div class="d-flex j-c-sb a-i-c">
-        <h2 class="f14">活动</h2>
-        <i class="el-icon-bell f20 theme poi"></i>
-      </div>
-      <div class="activity-box scrollbar">
-        <div class="mt10 poi" v-for="i in 10" :key="i">
-          <div class="d-flex a-i-c">
-            <img
-              v-img-lazy
-              style="width: 36px; height: 36px"
-              class="round"
-              src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
-              alt=""
-            />
-            <div class="ml5">
-              <p class="f12 b">活动标题</p>
               <p class="f10 mt5 theme ellipsi">消息内容23424234234234223434</p>
             </div>
           </div>
@@ -104,7 +80,7 @@ export default {
   position: relative;
 }
 
-.activity {
+.message {
   margin-top: 20px;
   position: relative;
 
@@ -133,7 +109,7 @@ export default {
 }
 
 .message-box {
-  height: 100px;
+  height: calc(100vh - 350px);
 }
 
 .logout {

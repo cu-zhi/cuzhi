@@ -216,7 +216,13 @@ export default {
                                                     effect: "dark",
                                                     content: "固定在左侧",
                                                     placement: "top",
-                                                    class: "item ml5",
+                                                    class: "item ml5 b",
+                                                  },
+                                                  style: {
+                                                    color:
+                                                      v.fixed === "left"
+                                                        ? "#409eff"
+                                                        : "",
                                                   },
                                                 },
                                                 [
@@ -226,6 +232,25 @@ export default {
                                                     style: {
                                                       "border-right":
                                                         "1px solid #e5e5e5",
+                                                    },
+                                                    on: {
+                                                      click: () => {
+                                                        if (
+                                                          v.fixed === "left"
+                                                        ) {
+                                                          this.$set(
+                                                            v,
+                                                            "fixed",
+                                                            false
+                                                          );
+                                                        } else {
+                                                          this.$set(
+                                                            v,
+                                                            "fixed",
+                                                            "left"
+                                                          );
+                                                        }
+                                                      },
                                                     },
                                                   }),
                                                 ]
@@ -239,11 +264,36 @@ export default {
                                                     placement: "top",
                                                     class: "item ml5",
                                                   },
+                                                  style: {
+                                                    color:
+                                                      v.fixed === "right"
+                                                        ? "#409eff"
+                                                        : "",
+                                                  },
                                                 },
                                                 [
                                                   h("i", {
                                                     class:
                                                       "el-icon-arrow-right pl10",
+                                                    on: {
+                                                      click: () => {
+                                                        if (
+                                                          v.fixed === "right"
+                                                        ) {
+                                                          this.$set(
+                                                            v,
+                                                            "fixed",
+                                                            false
+                                                          );
+                                                        } else {
+                                                          this.$set(
+                                                            v,
+                                                            "fixed",
+                                                            "right"
+                                                          );
+                                                        }
+                                                      },
+                                                    },
                                                   }),
                                                 ]
                                               ),
@@ -306,6 +356,7 @@ export default {
                 return column.slot
                   ? h("el-table-column", {
                       props: {
+                        fixed: column.fixed,
                         type: column.type,
                         label: column.label,
                         width: column.width,
@@ -326,6 +377,7 @@ export default {
                     })
                   : h("el-table-column", {
                       props: {
+                        fixed: column.fixed,
                         type: column.type,
                         label: column.label,
                         prop: column.prop,
