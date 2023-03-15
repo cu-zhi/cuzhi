@@ -2,28 +2,21 @@
 export default {
   name: "c-Table",
   props: {
-    data: { type: Array, default: () => [] },
-    columns: { type: Array, default: () => [] },
-    total: { type: Number, default: 0 },
-    page: {
-      type: Object,
-      default: () => {
-        return {
-          pageSize: 10,
-          pageNum: 1,
-        };
-      },
-    },
+    data: { type: Array, default: () => [] }, // 表格数据
+    columns: { type: Array, default: () => [] }, // 表格列配置
   },
   data() {
     return {
+      // 批量操作模块
       selectVal: "",
       selectionList: [],
 
+      // 批量操作模块
       isIndeterminate: false,
       checkVal: false,
       visible: false,
 
+      // 列展示模块
       columnsShow: false,
 
       resetColumns: [],
@@ -34,6 +27,23 @@ export default {
     this.resetColumns = JSON.parse(JSON.stringify(this.columns));
   },
   render(h) {
+    const tooltipConfig = [
+      {
+        content: "刷新数据",
+        icon: "el-icon-refresh",
+        click: () => {
+          this.visible = true;
+          this.$emit("pagination");
+        },
+      },
+      {
+        content: "列设置",
+        icon: "el-icon-setting",
+        click: () => {
+          this.visible = false;
+        },
+      },
+    ];
     return h(
       "el-card",
       {
@@ -42,24 +52,6 @@ export default {
         },
         scopedSlots: {
           header: (props) => {
-            const tooltipConfig = [
-              {
-                content: "刷新数据",
-                icon: "el-icon-refresh",
-                click: () => {
-                  this.visible = true;
-                  this.$emit("pagination");
-                },
-              },
-              {
-                content: "列设置",
-                icon: "el-icon-setting",
-                click: () => {
-                  this.visible = false;
-                  this.$emit("pagination");
-                },
-              },
-            ];
             return h(
               "div",
               {
