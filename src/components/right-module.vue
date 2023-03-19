@@ -1,6 +1,9 @@
 <template>
   <div class="right-module">
-    <div class="logout d-flex a-i-c r">
+    <div
+      class="logout d-flex a-i-c r poi"
+      @click="$store.commit('user/outLogin')"
+    >
       <svg
         t="1677849710627"
         class="icon"
