@@ -1,9 +1,11 @@
 <script>
+import { exportDelCols } from "@/utils/export";
 export default {
   name: "c-Table",
   props: {
     data: { type: Array, default: () => [] }, // 表格数据
     columns: { type: Array, default: () => [] }, // 表格列配置
+    exportName: { type: String, default: "导出的文件名" },
   },
   data() {
     return {
@@ -41,6 +43,14 @@ export default {
         icon: "el-icon-setting",
         click: () => {
           this.visible = false;
+        },
+      },
+      {
+        content: "导出当前页数据",
+        icon: "el-icon-download",
+        click: () => {
+          this.visible = true;
+          exportDelCols("c-table", this.exportName);
         },
       },
     ];
@@ -319,7 +329,7 @@ export default {
           "el-table",
           {
             ref: "c-table",
-            attrs: { ...this.$attrs, ...this.$props },
+            attrs: { ...this.$attrs, ...this.$props, id: "c-table" },
             on: {
               ...this.$listeners,
               "selection-change": (selection) => {
